@@ -1,1 +1,0 @@
-export { SigUp } from './SigUp';

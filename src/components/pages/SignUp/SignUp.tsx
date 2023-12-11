@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import styles from './SignUp.module.scss';
 
 const schema = yup.object().shape({
   firstName: yup
@@ -33,7 +34,7 @@ const schema = yup.object().shape({
 });
 type FormData = yup.InferType<typeof schema>;
 
-export function SigUp() {
+export function SignUp() {
   const {
     register,
     handleSubmit,
@@ -47,7 +48,7 @@ export function SigUp() {
   }
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div className={styles.sign_up__form}>
       <form onSubmit={handleSubmit(onSubmitHundler)}>
         <h2>LogIN/SignUP</h2>
         <input
