@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import styles from './Loyaut.module.scss';
+import styles from './Layout.module.scss';
 
-export function Loyaut() {
+export function Layout() {
   return (
     <div className={styles.container_app}>
       <header className={styles.header_form}>
