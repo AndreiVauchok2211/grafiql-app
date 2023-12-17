@@ -8,6 +8,7 @@ import {
 } from './../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styles from './Login.module.scss';
+import { clsx } from '../../utils/clsx';
 // import { Form } from 'react-hook-form';
 
 export function Login() {
@@ -23,29 +24,32 @@ export function Login() {
   }, [user, loading, navigate]);
   return (
     <div className={styles.login}>
-      <div className="login__container">
+      <div className={styles.login__container}>
         <input
           type="text"
-          className="login__textBox"
+          className={styles.login__textBox}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <input
           type="password"
-          className="login__textBox"
+          className={styles.login__textBox}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
         <button
-          className="login__btn"
+          className={styles.login__btn}
           //  onClick={() => signInWithEmailAndPassword(email, password)}
           onClick={() => logInWithEmailAndPassword(email, password)}
         >
           Login
         </button>
-        <button className="login__btn login__google" onClick={signInWithGoogle}>
+        <button
+          className={clsx(styles.login__btn, styles.login__google)}
+          onClick={signInWithGoogle}
+        >
           Login with Google
         </button>
         <div>

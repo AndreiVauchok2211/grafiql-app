@@ -7,6 +7,7 @@ import {
   /*sendPasswordResetEmail */ sendPasswordReset,
 } from './../../firebase';
 import styles from './Reset.module.scss';
+
 export function Reset() {
   const [email, setEmail] = useState('');
   const [user, loading] = useAuthState(auth);
@@ -20,13 +21,13 @@ export function Reset() {
       <div className="reset__container">
         <input
           type="text"
-          className="reset__textBox"
+          className={styles.reset__textBox}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <button
-          className="reset__btn"
+          className={styles.reset__btn}
           // onClick={() => sendPasswordResetEmail(email)}
           onClick={() => sendPasswordReset(email)}
         >
