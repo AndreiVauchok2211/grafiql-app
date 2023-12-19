@@ -1,19 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import { clsx } from '../../utils/clsx';
-import {
-  auth,
-  registerWithEmailAndPassword,
-  signInWithGoogle,
-} from './../../firebase';
+import { auth, registerWithEmailAndPassword } from './../../firebase';
 import styles from './Register.module.scss';
 
 export function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [user, loading /*error*/] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const history = useNavigate();
   const register = () => {
     if (!name) alert('Please enter name');
@@ -50,14 +45,12 @@ export function Register() {
         <button className={styles.register__btn} onClick={register}>
           Register
         </button>
-        <button
-          className={clsx(styles.register__btn, styles.register__google)}
-          onClick={signInWithGoogle}
-        >
-          Register with Google
-        </button>
         <div>
-          Already have an account? <Link to="/">Login</Link> now.
+          Already have an account?
+          <Link to="/" className={styles.register_link}>
+            Login
+          </Link>
+          now.
         </div>
       </div>
     </div>

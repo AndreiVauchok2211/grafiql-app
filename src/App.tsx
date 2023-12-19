@@ -1,8 +1,6 @@
-// import { Routes, Route } from 'react-router-dom';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Graphi } from './components/Graphi';
 import { SignUp } from './pages/SignUp';
-// import { Welcome } from './components/pages/Welcome';
 import { Layout } from './components/Layout/Layout';
 import { PageNotFound } from './pages/PageNotFound';
 import { Welcome } from './pages/Welcome';
@@ -11,7 +9,6 @@ import { Register } from './components/Register';
 import { Reset } from './components/Reset';
 import { Dashboard } from './components/Dashboard';
 import { AuthGuard } from './components/AuthGuard';
-// import { ErrorBoundary } from './components/ErrorBoundary';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +17,6 @@ const router = createBrowserRouter([
     errorElement: <PageNotFound />,
     children: [
       {
-        // path: '/',
         index: true,
         element: <Welcome />,
       },
@@ -63,20 +59,3 @@ export function App() {
     </>
   );
 }
-
-// export function App() {
-//   return (
-//     <>
-//       <ErrorBoundary>
-//         <Routes>
-//           <Route path="/" element={<Layout />}>
-//             <Route index element={<Welcome />} />
-//             <Route path="graphiql" element={<Graphi />} />
-//             <Route path="signup" element={<SignUp />} />
-//             <Route path="*" element={<PageNotFound />} />
-//           </Route>
-//         </Routes>
-//       </ErrorBoundary>
-//     </>
-//   );
-// }

@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  auth,
-  /* signInWithEmailAndPassword */
-  logInWithEmailAndPassword,
-  signInWithGoogle,
-} from './../../firebase';
+import { auth, logInWithEmailAndPassword } from './../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styles from './Login.module.scss';
-import { clsx } from '../../utils/clsx';
-// import { Form } from 'react-hook-form';
 
 export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [user, loading /*error*/] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (loading) {
       return;
@@ -41,22 +35,21 @@ export function Login() {
         />
         <button
           className={styles.login__btn}
-          //  onClick={() => signInWithEmailAndPassword(email, password)}
           onClick={() => logInWithEmailAndPassword(email, password)}
         >
           Login
         </button>
-        <button
-          className={clsx(styles.login__btn, styles.login__google)}
-          onClick={signInWithGoogle}
-        >
-          Login with Google
-        </button>
         <div>
-          <Link to="/reset">Forgot Password</Link>
+          <Link to="/reset" className={styles.login_link}>
+            Forgot Password
+          </Link>
         </div>
         <div>
-          Do not have an account? <Link to="/register">Register</Link> now.
+          Do not have an account?
+          <Link to="/register" className={styles.login_link}>
+            Register
+          </Link>
+          now.
         </div>
       </div>
     </div>
