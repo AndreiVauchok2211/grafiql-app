@@ -1,6 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Graphi } from './components/Graphi';
-import { SignUp } from './pages/SignUp';
 import { Layout } from './components/Layout/Layout';
 import { PageNotFound } from './pages/PageNotFound';
 import { Welcome } from './pages/Welcome';
@@ -25,10 +24,6 @@ const router = createBrowserRouter([
         element: <Graphi />,
       },
       {
-        path: 'signup',
-        element: <SignUp />,
-      },
-      {
         path: 'login',
         element: (
           <AuthGuard redirectLink="/">
@@ -38,14 +33,22 @@ const router = createBrowserRouter([
       },
       {
         path: 'register',
-        element: <Register />,
+        element: (
+          <AuthGuard redirectLink="/">
+            <Register />
+          </AuthGuard>
+        ),
       },
       {
         path: 'reset',
-        element: <Reset />,
+        element: (
+          <AuthGuard redirectLink="/">
+            <Reset />
+          </AuthGuard>
+        ),
       },
       {
-        path: 'dashboard',
+        path: 'logout',
         element: <Dashboard />,
       },
     ],

@@ -14,7 +14,7 @@ export function Login() {
     if (loading) {
       return;
     }
-    if (user) navigate('/dashboard');
+    if (user) navigate('/logout');
   }, [user, loading, navigate]);
   return (
     <div className={styles.login}>

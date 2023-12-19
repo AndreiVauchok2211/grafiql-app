@@ -13,12 +13,18 @@
   padding: 30px;
 }
 .dashboard__btn {
+  cursor: pointer;
   padding: 10px;
   font-size: 18px;
   margin-top: 10px;
   border: none;
   color: white;
   background-color: black;
+  transition: all 0.3s;
+}
+.dashboard__btn:hover {
+  opacity: 0.7;
+  transition: all 0.3s;
 }
 .dashboard div {
   margin-top: 7px;
