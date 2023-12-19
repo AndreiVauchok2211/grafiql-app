@@ -1,7 +1,5 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-// import { AuthUser } from './types/types';
-// import { getAnalytics } from 'firebase/analytics';
+
 import {
   GoogleAuthProvider,
   getAuth,
@@ -21,24 +19,18 @@ import {
   addDoc,
 } from 'firebase/firestore';
 import { ValidationError } from 'yup';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'AIzaSyCqAkWT3KKN451ALDgqK1tmPKGLUGDz5zk',
-  authDomain: 'fir-auth-21762.firebaseapp.com',
-  projectId: 'fir-auth-21762',
-  storageBucket: 'fir-auth-21762.appspot.com',
-  messagingSenderId: '12822832879',
-  appId: '1:12822832879:web:072f75b79fb8df22499d1a',
-  measurementId: 'G-63HB8SXJHX',
+  apiKey: import.meta.env.VITE_QRAPHIQL_APP_API_KEY,
+  authDomain: import.meta.env.VITE_QRAPHIQL_APP_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_QRAPHIQL_APP_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_QRAPHIQL_APP_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_QRAPHIQL_APP_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_QRAPHIQL_APP_APP_ID,
+  measurementId: import.meta.env.VITE_QRAPHIQL_APP_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
