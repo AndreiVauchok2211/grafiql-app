@@ -22,7 +22,7 @@ export function Dashboard() {
       }
     };
     if (loading) return;
-    if (!user) return navigate('/');
+    if (!user) return navigate('/login');
     fetchUserName();
   }, [user, loading, navigate]);
   return (

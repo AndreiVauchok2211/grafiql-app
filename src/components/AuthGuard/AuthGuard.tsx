@@ -18,7 +18,7 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({
     if (loading) {
       return;
     }
-    if (user) navigate(redirectLink);
+    if (!user) navigate(redirectLink);
   }, [user, loading, navigate, redirectLink]);
   return <>{children}</>;
 };

@@ -16,7 +16,7 @@ export function Register() {
   };
   useEffect(() => {
     if (loading) return;
-    if (user) history('/dashboard');
+    if (user) history('/');
   }, [user, loading, history]);
   return (
     <div className={styles.register}>

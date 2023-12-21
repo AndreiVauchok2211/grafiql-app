@@ -21,31 +21,23 @@ const router = createBrowserRouter([
       },
       {
         path: 'graphiql',
-        element: <Graphi />,
+        element: (
+          <AuthGuard redirectLink="/">
+            <Graphi />
+          </AuthGuard>
+        ),
       },
       {
         path: 'login',
-        element: (
-          <AuthGuard redirectLink="/">
-            <Login />
-          </AuthGuard>
-        ),
+        element: <Login />,
       },
       {
         path: 'register',
-        element: (
-          <AuthGuard redirectLink="/">
-            <Register />
-          </AuthGuard>
-        ),
+        element: <Register />,
       },
       {
         path: 'reset',
-        element: (
-          <AuthGuard redirectLink="/">
-            <Reset />
-          </AuthGuard>
-        ),
+        element: <Reset />,
       },
       {
         path: 'logout',
