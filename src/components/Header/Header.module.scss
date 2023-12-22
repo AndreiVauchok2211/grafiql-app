@@ -6,8 +6,15 @@
 }
 
 .header_form {
+  position: sticky;
+  top: 0;
   height: 40px;
   display: flex;
   justify-content: space-evenly;
-  background-color: rgb(205, 231, 133);
+  background-color: rgb(178, 202, 110);
+}
+
+.header_bg {
+  background-color: rgb(178, 202, 110);
+  opacity: 0.8;
 }
