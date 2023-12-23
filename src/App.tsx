@@ -8,6 +8,8 @@ import { Register } from './components/Register';
 import { Reset } from './components/Reset';
 import { Dashboard } from './components/Dashboard';
 import { AuthGuard } from './components/AuthGuard';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,12 @@ const router = createBrowserRouter([
 ]);
 
 export function App() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage('en');
+  }, [i18n]);
+
   return (
     <>
       <RouterProvider router={router} />
