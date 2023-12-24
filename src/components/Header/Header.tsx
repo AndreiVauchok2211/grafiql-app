@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
-import { LanguagePicker } from '../SharedComponent';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase';
 import { useState } from 'react';
@@ -26,7 +25,6 @@ export function Header() {
         color ? styles.header_form : clsx(styles.header_form, styles.header_bg)
       }
     >
-      <LanguagePicker />
       <NavLink to="/">Welcome</NavLink>
       {user ? (
         <>
