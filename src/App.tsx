@@ -8,8 +8,10 @@ import { Register } from './components/Register';
 import { Reset } from './components/Reset';
 import { Dashboard } from './components/Dashboard';
 import { AuthGuard } from './components/AuthGuard';
-import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
+// import { LangContext } from './context/lang';
+// import { useContext } from 'react';
+import { LangState } from './context/lang';
+// import { LangState } from '../src/context/lang';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Welcome />,
+        element: (
+          <LangState>
+            <Welcome />
+          </LangState>
+        ),
       },
       {
         path: 'graphiql',
@@ -50,15 +56,14 @@ const router = createBrowserRouter([
 ]);
 
 export function App() {
-  const { i18n } = useTranslation();
-
-  useEffect(() => {
-    i18n.changeLanguage('en');
-  }, [i18n]);
-
+  // const {
+  //   dispathc: { translate },
+  // } = useContext(LangContext);
   return (
     <>
+      {/* <LangState> */}
       <RouterProvider router={router} />
+      {/* </LangState> */}
     </>
   );
 }
