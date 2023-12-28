@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <LangState>
-            <Welcome />
+            <Welcome translate={translate} />
           </LangState>
         ),
       },
