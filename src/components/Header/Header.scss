@@ -19,18 +19,32 @@
   opacity: 0.8;
 }
 .header__lang {
+  position: relative;
 }
 
 .header__lang_fixed {
 }
 
 .header__nav_lang {
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  color: blue;
 }
 
 .selected {
+  width: 10px;
+  background-color: floralwhite;
+  color: blueviolet;
+  cursor: pointer;
 }
 
 .dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 10%;
+  padding: 5px;
 }
 
 .header__lang_transparent {

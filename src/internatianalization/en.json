@@ -1,5 +1,3 @@
 {
-  "welcome": {
-    "text": "Welcome GraficQL application"
-  }
+  "welcome": "Welcome GraficQL application"
 }

@@ -3,9 +3,9 @@ import React, {
   useReducer,
   createContext,
   FC,
-  cloneElement,
-  Children,
-  ReactElement,
+  // cloneElement,
+  // Children,
+  // ReactElement,
 } from 'react';
 
 import en from '../internatianalization/en.json';
@@ -24,7 +24,7 @@ interface LangStateProps {
 }
 
 interface SetLangAction {
-  type: LangActionType.SET_LANGUAGE;
+  type: typeof LangActionType.SET_LANGUAGE;
   payload: string;
 }
 
@@ -64,15 +64,14 @@ export const LangState: FC<LangStateProps> = ({ children }) => {
       payload: lang,
     });
   };
+
   const translate = (key: string): string => {
     const { language } = state;
     let langData: { [key: string]: string } = {};
 
     if (language === 'EN') {
       langData = en;
-    } else if (language === 'RU') {
-      langData = ru;
-    }
+    } else langData = ru;
 
     return langData[key];
   };
@@ -80,12 +79,12 @@ export const LangState: FC<LangStateProps> = ({ children }) => {
     <LangContext.Provider
       value={{ state, dispathc: { setLanguage, translate } }}
     >
-      {Children.map<ReactNode, ReactNode>(children, (child) => {
+      {/* {Children.map<ReactNode, ReactNode>(children, (child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, { translate: translate });
         }
-      })}
-      {/* {children} */}
+      })} */}
+      {children}
     </LangContext.Provider>
   );
 };

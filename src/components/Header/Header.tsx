@@ -11,13 +11,14 @@ interface HeaderLangProps {
 }
 
 export function Header({ fixed, transparent }: HeaderLangProps) {
-  const [user] = useAuthState(auth);
-  const [color, setColor] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
   const {
     state: { language },
     dispathc: { setLanguage, translate },
   } = useContext(LangContext);
+  const [user] = useAuthState(auth);
+  const [color, setColor] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+
   const dropdownElement = useRef<HTMLUListElement>(null);
 
   let headerClass = 'header__lang';
