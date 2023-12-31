@@ -18,34 +18,52 @@
   background-color: rgb(178, 202, 110);
   opacity: 0.8;
 }
-.header__lang {
-  position: relative;
-}
 
 .header__lang_fixed {
 }
 
 .header__nav_lang {
-  width: 20px;
-  height: 20px;
-  padding: 2px;
+  width: 24px;
   color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .selected {
-  width: 10px;
-  background-color: floralwhite;
-  color: blueviolet;
+  width: 100%;
+  background-color: rgb(215, 248, 125);
+  color: rgb(82, 25, 136);
+  opacity: 0.8;
   cursor: pointer;
+  border-radius: 50%;
+
+  &:hover {
+    opacity: 1.2;
+  }
 }
 
 .dropdown {
   position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-  width: 10%;
-  padding: 5px;
+  top: calc(100% + 0px);
+  background-color: rgb(215, 248, 125);
+  padding: 0 1px;
+  /* right: 40px; */
+  /* width: 10%; */
+  /* padding: 11px; */
 }
 
 .header__lang_transparent {
+}
+
+.list__lang_open {
+  list-style: none;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1.2;
+  }
 }

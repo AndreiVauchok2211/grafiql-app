@@ -77,7 +77,7 @@ export function App() {
           path: 'graphiql',
           element: (
             <AuthGuard redirectLink="/">
-              <Graphi />
+              <Graphi translate={translate} />
             </AuthGuard>
           ),
         },

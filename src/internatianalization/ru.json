@@ -1,3 +1,10 @@
 {
-  "welcome": "Добро пожаловать в приложение GraficQL"
+  "welcome": "Главная",
+  "welcome_title": "Welcome GraficQL application",
+  "graphi": "Графы",
+  "graphi_title": "Страница GraphiQL",
+  "login": "Вход",
+  "register": "Регистрация",
+  "reset": "Сброс",
+  "logout": "Выход"
 }

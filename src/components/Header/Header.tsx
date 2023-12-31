@@ -36,7 +36,10 @@ export function Header({ fixed, transparent }: HeaderLangProps) {
         (e.target as HTMLElement)?.closest('.dropdown') !==
           dropdownElement.current
       ) {
-        setShowDropdown(false);
+        console.log(showDropdown);
+        console.log(e.target);
+        console.log(dropdownElement.current);
+        setShowDropdown(true);
       }
     },
     [showDropdown, setShowDropdown, dropdownElement]
@@ -78,22 +81,32 @@ export function Header({ fixed, transparent }: HeaderLangProps) {
         </p>
         {showDropdown && (
           <ul className="dropdown" ref={dropdownElement}>
-            <li onClick={() => chooseLanguageHundler('EN')}>EN</li>
-            <li onClick={() => chooseLanguageHundler('RU')}>RU</li>
+            <li
+              className="list__lang_open"
+              onClick={() => chooseLanguageHundler('EN')}
+            >
+              EN
+            </li>
+            <li
+              className="list__lang_open"
+              onClick={() => chooseLanguageHundler('RU')}
+            >
+              RU
+            </li>
           </ul>
         )}
       </div>
       <NavLink to="/">{translate('welcome')}</NavLink>
       {user ? (
         <>
-          <NavLink to="/graphiql">GraphiQL</NavLink>
-          <NavLink to="/logout">LogOut</NavLink>
+          <NavLink to="/graphiql">{translate('graphi')}</NavLink>
+          <NavLink to="/logout">{translate('logout')}</NavLink>
         </>
       ) : (
         <>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/register">Register</NavLink>
-          <NavLink to="/reset">Reset</NavLink>
+          <NavLink to="/login">{translate('login')}</NavLink>
+          <NavLink to="/register">{translate('register')}</NavLink>
+          <NavLink to="/reset">{translate('reset')}</NavLink>
         </>
       )}
     </header>

@@ -9,5 +9,5 @@ test('render text', async () => {
   } = useContext(LangContext);
 
   render(<Welcome translate={translate} />);
-  expect(screen.getByText('Welcome GraficQL application')).toBeInTheDocument();
+  expect(screen.getByText(`${translate('welcome_title')}`)).toBeInTheDocument();
 });
