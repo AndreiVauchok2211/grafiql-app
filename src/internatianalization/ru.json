@@ -1,10 +1,11 @@
 {
   "welcome": "Главная",
-  "welcome_title": "Welcome GraficQL application",
+  "welcome_title": "Добро пожаловать в приложение GraficQL",
   "graphi": "Графы",
   "graphi_title": "Страница GraphiQL",
   "login": "Вход",
   "register": "Регистрация",
   "reset": "Сброс",
-  "logout": "Выход"
+  "logout": "Выход",
+  "footer_course": "Курс по React от  The Rolling Scopes School"
 }
