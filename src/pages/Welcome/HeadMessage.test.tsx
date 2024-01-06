@@ -8,6 +8,12 @@ test('render text', async () => {
     dispathc: { translate },
   } = useContext(LangContext);
 
-  render(<Welcome translate={translate} />);
+  render(
+    // <LangContext.Provider
+    //   value={{ state, dispathc: { setLanguage, translate } }}
+    // >
+    <Welcome translate={translate} />
+    // </LangContext.Provider>
+  );
   expect(screen.getByText(`${translate('welcome_title')}`)).toBeInTheDocument();
 });
