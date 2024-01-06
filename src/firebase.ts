@@ -9,7 +9,6 @@ import {
 } from 'firebase/auth';
 
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { ValidationError } from 'yup';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_QRAPHIQL_APP_API_KEY,
@@ -29,14 +28,11 @@ const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err: unknown) {
-    if (!(err instanceof ValidationError)) {
-      throw err;
-    }
+    throw err;
   }
 };
 
 const registerWithEmailAndPassword = async (
-  name: string,
   email: string,
   password: string
 ) => {
@@ -45,14 +41,11 @@ const registerWithEmailAndPassword = async (
     const user = res.user;
     await addDoc(collection(db, 'users'), {
       uid: user.uid,
-      name,
       authProvider: 'local',
       email,
     });
   } catch (err: unknown) {
-    if (!(err instanceof ValidationError)) {
-      throw err;
-    }
+    throw err;
   }
 };
 
@@ -61,9 +54,7 @@ const sendPasswordReset = async (email: string) => {
     await sendPasswordResetEmail(auth, email);
     alert('Password reset link sent!');
   } catch (err: unknown) {
-    if (!(err instanceof ValidationError)) {
-      throw err;
-    }
+    throw err;
   }
 };
 

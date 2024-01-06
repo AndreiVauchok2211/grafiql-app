@@ -1,14 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, logInWithEmailAndPassword } from './../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styles from './Login.module.scss';
+import { useForm } from 'react-hook-form';
+import { AuthUser } from '../../types/types';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { schema } from '../../schema/schema';
 
 export function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<AuthUser>({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = async (data: AuthUser) => {
+    try {
+      await logInWithEmailAndPassword(data.email, data.password);
+    } catch {
+      alert('Incorrect login or password');
+    }
+  };
 
   useEffect(() => {
     if (loading) {
@@ -18,27 +36,23 @@ export function Login() {
   }, [user, loading, navigate]);
   return (
     <div className={styles.login}>
-      <div className={styles.login__container}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.login__container}
+      >
         <input
-          type="text"
+          {...register('email')}
           className={styles.login__textBox}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="E-mail"
         />
+        <p>{errors.email?.message}</p>
         <input
-          type="password"
+          {...register('password')}
           className={styles.login__textBox}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button
-          className={styles.login__btn}
-          onClick={() => logInWithEmailAndPassword(email, password)}
-        >
-          Login
-        </button>
+        <p>{errors.password?.message}</p>
+        <input className={styles.login__btn} type="submit" value="Login" />
         <div>
           <Link to="/reset" className={styles.login_link}>
             Forgot Password
@@ -51,7 +65,7 @@ export function Login() {
           </Link>
           now.
         </div>
-      </div>
+      </form>
     </div>
   );
 }

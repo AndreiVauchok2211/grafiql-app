@@ -1,5 +1,8 @@
 export type AuthUser = {
-  name?: string;
-  email?: string;
-  password?: string;
+  email: string;
+  password: string;
+};
+
+export type ResetAuthUser = {
+  email: string;
 };

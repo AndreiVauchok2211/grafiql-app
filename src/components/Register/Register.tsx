@@ -1,58 +1,64 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, registerWithEmailAndPassword } from './../../firebase';
 import styles from './Register.module.scss';
+import { schema } from '../../schema/schema';
+import { useForm } from 'react-hook-form';
+import { AuthUser } from '../../types/types';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 export function Register() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
   const [user, loading] = useAuthState(auth);
   const history = useNavigate();
-  const register = () => {
-    if (!name) alert('Please enter name');
-    registerWithEmailAndPassword(name, email, password);
-  };
   useEffect(() => {
     if (loading) return;
     if (user) history('/');
   }, [user, loading, history]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<AuthUser>({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data: AuthUser) => {
+    registerWithEmailAndPassword(data.email, data.password);
+  };
+
   return (
     <div className={styles.register}>
-      <div className={styles.register__container}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.register__container}
+      >
         <input
-          type="text"
+          {...register('email')}
           className={styles.register__textBox}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
+          placeholder="E-mail"
         />
+        <p>{errors.email?.message}</p>
         <input
-          type="text"
+          {...register('password')}
           className={styles.register__textBox}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <input
-          type="password"
-          className={styles.register__textBox}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button className={styles.register__btn} onClick={register}>
-          Register
-        </button>
+        <p>{errors.password?.message}</p>
+        <input
+          className={styles.register__btn}
+          type="submit"
+          value="Register"
+        />
         <div>
           Already have an account?
-          <Link to="/" className={styles.register_link}>
+          <Link to="/login" className={styles.register_link}>
             Login
           </Link>
           now.
         </div>
-      </div>
+      </form>
     </div>
   );
 }
