@@ -1,0 +1,13 @@
+.container_app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.header_form {
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(205, 231, 133);
+}
