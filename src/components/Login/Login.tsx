@@ -8,7 +8,11 @@ import { AuthUser } from '../../types/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../schema/schema';
 
-export function Login() {
+interface LoginProps {
+  translate: (key: string) => string;
+}
+
+export function Login({ translate }: LoginProps) {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -52,18 +56,22 @@ export function Login() {
           placeholder="Password"
         />
         <p>{errors.password?.message}</p>
-        <input className={styles.login__btn} type="submit" value="Login" />
+        <input
+          className={styles.login__btn}
+          type="submit"
+          value={translate(`login_button`)}
+        />
         <div>
           <Link to="/reset" className={styles.login_link}>
-            Forgot Password
+            {translate(`login_fargot`)}
           </Link>
         </div>
         <div>
-          Do not have an account?
+          {translate(`login_question`)}
           <Link to="/register" className={styles.login_link}>
-            Register
+            {translate(`login_register`)}
           </Link>
-          now.
+          {translate(`login_now`)}
         </div>
       </form>
     </div>

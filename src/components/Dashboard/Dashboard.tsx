@@ -5,7 +5,11 @@ import styles from './Dashboard.module.scss';
 import { auth, db, logout } from '../../firebase';
 import { query, collection, getDocs, where } from 'firebase/firestore';
 
-export function Dashboard() {
+interface DashboardProps {
+  translate: (key: string) => string;
+}
+
+export function Dashboard({ translate }: DashboardProps) {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState('');
   const navigate = useNavigate();
@@ -28,11 +32,11 @@ export function Dashboard() {
   return (
     <div className={styles.dashboard}>
       <div className={styles.dashboard__container}>
-        Logged in as
+        {translate(`dashboard_logged`)}
         <div>{name}</div>
         <div>{user?.email}</div>
         <button className={styles.dashboard__btn} onClick={logout}>
-          Logout
+          {translate(`dashboard_logout`)}
         </button>
       </div>
     </div>

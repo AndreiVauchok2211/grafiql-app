@@ -8,7 +8,11 @@ import { useForm } from 'react-hook-form';
 import { AuthUser } from '../../types/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-export function Register() {
+interface RegisterPageProps {
+  translate: (key: string) => string;
+}
+
+export function Register({ translate }: RegisterPageProps) {
   const [user, loading] = useAuthState(auth);
   const history = useNavigate();
   useEffect(() => {
@@ -49,14 +53,14 @@ export function Register() {
         <input
           className={styles.register__btn}
           type="submit"
-          value="Register"
+          value={translate(`register_button`)}
         />
         <div>
-          Already have an account?
+          {translate(`register_already`)}
           <Link to="/login" className={styles.register_link}>
-            Login
+            {translate(`register_login`)}
           </Link>
-          now.
+          {translate(`register_now`)}
         </div>
       </form>
     </div>

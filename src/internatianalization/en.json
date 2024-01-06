@@ -7,5 +7,20 @@
   "register": "Register",
   "reset": "Reset",
   "logout": "Logout",
-  "footer_course": "React course from The Rolling Scopes School"
+  "footer_course": "React course from The Rolling Scopes School",
+  "reset_question": "Don not have an account?",
+  "reset_register": "Register",
+  "reset_now": "now",
+  "reset_password": "Reset Password",
+  "login_fargot": "Forgot Password",
+  "login_button": "Login",
+  "login_question": "Don not have an account?",
+  "login_register": "Register",
+  "login_now": "now",
+  "dashboard_logged": "Logged in as",
+  "dashboard_logout": "Logout",
+  "register_button": "Register",
+  "register_already": "Already have an account?",
+  "register_login": "Login",
+  "register_now": "now"
 }

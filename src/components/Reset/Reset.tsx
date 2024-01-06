@@ -9,7 +9,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schemaForReset } from '../../schema/schema';
 
-export function Reset() {
+interface ResetProps {
+  translate: (key: string) => string;
+}
+
+export function Reset({ translate }: ResetProps) {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -46,14 +50,14 @@ export function Reset() {
         <input
           className={styles.reset__btn}
           type="submit"
-          value="Reset Pasword"
+          value={translate(`reset_password`)}
         />
         <div>
-          Don not have an account?
+          {translate(`reset_question`)}
           <Link to="/register" className={styles.reset_link}>
-            Register
+            {translate(`reset_register`)}
           </Link>
-          now.
+          {translate(`reset_now`)}
         </div>
       </form>
     </div>
