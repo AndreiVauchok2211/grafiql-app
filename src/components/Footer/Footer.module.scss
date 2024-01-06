@@ -1,0 +1,43 @@
+.footer {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(149, 179, 66);
+  flex-wrap: wrap;
+}
+
+.container__author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.container__course {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container__footer_year {
+  font-size: 16px;
+}
+
+.footer__year {
+  margin: 0 2px;
+}
+
+.footer_rs {
+  width: 60px;
+}
+
+.footer__img {
+  margin: 2px;
+}
+
+.footer__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

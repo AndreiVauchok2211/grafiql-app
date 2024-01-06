@@ -1,0 +1,11 @@
+{
+  "welcome": "Welcome",
+  "welcome_title": "Welcome GraficQL application",
+  "graphi": "GraphiQL",
+  "graphi_title": "GraphiQL page",
+  "login": "Login",
+  "register": "Register",
+  "reset": "Reset",
+  "logout": "Logout",
+  "footer_course": "React course from The Rolling Scopes School"
+}

@@ -1,5 +1,9 @@
 import styles from './Welcome.module.scss';
 
-export function Welcome() {
-  return <h1 className={styles.welcome_title}>Welcome GraficQL application</h1>;
+interface WelcomePageProps {
+  translate: (key: string) => string;
+}
+
+export function Welcome({ translate }: WelcomePageProps) {
+  return <h1 className={styles.welcome_title}>{translate('welcome_title')}</h1>;
 }
