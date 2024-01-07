@@ -83,19 +83,19 @@ export function App() {
         },
         {
           path: 'login',
-          element: <Login />,
+          element: <Login translate={translate} />,
         },
         {
           path: 'register',
-          element: <Register />,
+          element: <Register translate={translate} />,
         },
         {
           path: 'reset',
-          element: <Reset />,
+          element: <Reset translate={translate} />,
         },
         {
           path: 'logout',
-          element: <Dashboard />,
+          element: <Dashboard translate={translate} />,
         },
       ],
     },

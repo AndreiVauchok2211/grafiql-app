@@ -1,4 +1,50 @@
 .graphi_page {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
+  flex-direction: row;
+  flex: 1;
+}
+.graphi_container {
+  display: contents;
+}
+
+.graphi__horizontal_bar {
+  width: 10px;
+  cursor: col-resize;
+}
+.graphi__sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(212, 231, 227);
+  border: 1px solid rgb(113, 170, 158);
+  border-radius: 5px;
+  padding: 10px 2px;
+}
+
+.graphi_start_btn {
+  cursor: pointer;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.btn__doc_close {
+  cursor: pointer;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.btn__doc_open {
+  cursor: pointer;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
 }
