@@ -1,12 +1,4 @@
-import React, {
-  ReactNode,
-  useReducer,
-  createContext,
-  FC,
-  // cloneElement,
-  // Children,
-  // ReactElement,
-} from 'react';
+import React, { ReactNode, useReducer, createContext, FC } from 'react';
 
 import en from '../internatianalization/en.json';
 import ru from '../internatianalization/ru.json';
@@ -79,18 +71,7 @@ export const LangState: FC<LangStateProps> = ({ children }) => {
     <LangContext.Provider
       value={{ state, dispathc: { setLanguage, translate } }}
     >
-      {/* {Children.map<ReactNode, ReactNode>(children, (child) => {
-        if (React.isValidElement(child)) {
-          return React.cloneElement(child, { translate: translate });
-        }
-      })} */}
       {children}
     </LangContext.Provider>
   );
 };
-
-// {Children.map(children, (child) =>
-//    cloneElement(child, {
-//      translate: translate,
-//    })
-//  )}
