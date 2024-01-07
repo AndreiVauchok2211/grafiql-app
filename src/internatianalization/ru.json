@@ -22,5 +22,8 @@
   "register_button": "Регистрация",
   "register_already": "У вас уже есть аккаунт?",
   "register_login": "Войти",
-  "register_now": "сейчас"
+  "register_now": "сейчас",
+  "graphdoca_name": "Документация",
+  "graphjson_json": "Просмотрщик JSON",
+  "graphjson_query": "Редактор запросов"
 }

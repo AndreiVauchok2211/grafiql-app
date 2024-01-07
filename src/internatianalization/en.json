@@ -22,5 +22,8 @@
   "register_button": "Register",
   "register_already": "Already have an account?",
   "register_login": "Login",
-  "register_now": "now"
+  "register_now": "now",
+  "graphdoca_name": "Documentation",
+  "graphjson_json": "JSON viewer",
+  "graphjson_query": "Query editor"
 }

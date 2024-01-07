@@ -12,9 +12,7 @@ export function Layout() {
   return (
     <div className={styles.container_app}>
       <Header />
-      <div>
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer translate={translate} />
     </div>
   );
