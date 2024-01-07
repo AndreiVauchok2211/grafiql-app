@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'PlaypenSans-Medium';
+  src: url('src/fonts/PlaypenSans-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PlaypenSans-Regular';
+  src: url('src/fonts/PlaypenSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: url('src/fonts/Roboto-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('src/fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+$font-family-primary: 'PlaypenSans-Medium', sans-serif;
+$font-family-secondary: 'PlaypenSans-Regular', sans-serif;
+$font-family-roboto-regular: 'Roboto-Regular', sans-serif;
+$font-family-roboto-italic: 'Roboto-Italic', sans-serif;

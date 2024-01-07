@@ -1,0 +1,49 @@
+.footer {
+  // max-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(149, 179, 66);
+  flex-wrap: wrap;
+}
+
+.container__author {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.container__course {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container__footer_year {
+  height: 40px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__year {
+  margin: 0 2px;
+}
+
+.footer_rs {
+  width: 60px;
+}
+
+.footer__img {
+  margin: 2px;
+}
+
+.footer__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

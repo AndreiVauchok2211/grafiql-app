@@ -1,0 +1,29 @@
+.graphi__json_view {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 5px 2px;
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+  }
+}
+
+.graphi__json_query {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  width: 90%;
+}
+
+.graphi__json_json {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  width: 90%;
+}
+
+.graphi__query_response {
+  background-color: rgb(212, 231, 227);
+}

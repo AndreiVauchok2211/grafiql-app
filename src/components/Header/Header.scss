@@ -1,0 +1,63 @@
+.container_app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.header_form {
+  position: sticky;
+  top: 0;
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(178, 202, 110);
+}
+
+.header_bg {
+  background-color: rgb(178, 202, 110);
+  opacity: 0.8;
+}
+
+.header__nav_lang {
+  width: 24px;
+  color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.selected {
+  width: 100%;
+  background-color: rgb(215, 248, 125);
+  color: rgb(82, 25, 136);
+  opacity: 0.8;
+  cursor: pointer;
+  border-radius: 50%;
+
+  &:hover {
+    opacity: 1.2;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 0px);
+  background-color: rgb(215, 248, 125);
+  padding: 0 1px;
+  /* right: 40px; */
+  /* width: 10%; */
+  /* padding: 11px; */
+}
+
+.list__lang_open {
+  list-style: none;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1.2;
+  }
+}
